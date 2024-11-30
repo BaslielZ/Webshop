@@ -16,7 +16,6 @@ header{
     padding: 0.5rem 2rem;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 nav{
@@ -50,12 +49,21 @@ a{
     scale: 1.2;
 }
 
+.message{
+    padding: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 
 /*Styles for the List of Products*/
 .product-container{
+    padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, 30rem);
-    grid-template-rows: repeat(auto, 30rem);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto);
     row-gap: 10px;
     column-gap: 10px;
     justify-content: center;
@@ -68,3 +76,7 @@ a{
     height: 200px;
     background-color: black;
 }
+
+
+
+
