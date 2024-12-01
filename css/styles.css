@@ -62,7 +62,7 @@ a{
 .product-container{
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
     grid-template-rows: repeat(auto);
     row-gap: 10px;
     column-gap: 10px;
@@ -76,7 +76,4 @@ a{
     height: 200px;
     background-color: black;
 }
-
-
-
 
