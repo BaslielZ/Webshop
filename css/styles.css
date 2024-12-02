@@ -12,7 +12,7 @@ body{
 /*Styles for the navigation bar*/ 
 header{
     display: flex;
-    background-color: rgb(26, 32, 45);
+    background-color: rgb(42, 158, 236);
     padding: 0.5rem 2rem;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +70,9 @@ a{
 }
 
 .product-card{
-    border: solid 2px green;
+    border: solid 1px dodgerblue;
+    border-radius: 60px;
+    box-shadow: 0 0 0 10px rgba(57, 145, 251,0.1);
     display: flex;
     flex-direction:column ;
     justify-content: space-between;
@@ -79,6 +81,11 @@ a{
     white-space: wrap;
     padding: 3rem;
     margin: 2.5rem 1.5rem;
+    transition: scale 0.2s;
+}
+
+.product-card:hover{
+    scale: 1.05;
 }
 
 .product-card h3{
@@ -93,4 +100,17 @@ a{
     width: 300px;
     height: 200px;
     object-fit: contain;
+}
+
+.addToCart-btn{
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 30px;
+    background-color: dodgerblue;
+    color: #fff ;
+    transition: background-color 0.15s;
+}
+
+.addToCart-btn:hover{
+    background-color: rgb(0, 124, 247);
 }

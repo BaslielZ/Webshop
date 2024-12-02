@@ -17,17 +17,29 @@ async function getData(){
             product.classList.add('product-card')
             product.innerHTML = `
             <img class="product-card-image" src="${products[i].image}" alt="">
-            <h3>${products[i].title}</h3>
-            <p>${products[i].price}</p>
-            <button>Add to Cart</button>`
+            <h3 class= "product-card-title">${products[i].title}</h3>
+            <p class="product-card-price">${products[i].price}</p>
+            <button class="addToCart-btn">Add to Cart</button>`
             document.getElementById('product-container').appendChild(product)
         }
+
     }
     
     displayProducts()
+    
 }
 
 getData()
 
 
 
+
+addToCartBtns= document.getElementsByClassName('addToCart-btn')
+
+addToCartBtns.addEventListener('click', addToCart)
+
+productsInCart = []
+
+function addToCart(){
+    console.log('moi')
+}
