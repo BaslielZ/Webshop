@@ -11,11 +11,15 @@ body{
 
 /*Styles for the navigation bar*/ 
 header{
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
     display: flex;
     background-color: rgb(42, 158, 236);
     padding: 0.5rem 2rem;
     justify-content: space-between;
     align-items: center;
+    z-index: 99;
 }
 
 nav{
@@ -50,7 +54,7 @@ a{
 }
 
 .message{
-    padding: 8rem;
+    padding: 16rem;
     display: flex;
     justify-content: center;
     align-items: center;
