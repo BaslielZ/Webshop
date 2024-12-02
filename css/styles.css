@@ -12,7 +12,7 @@ body{
 /*Styles for the navigation bar*/ 
 header{
     display: flex;
-    background-color: red;
+    background-color: rgb(26, 32, 45);
     padding: 0.5rem 2rem;
     justify-content: space-between;
     align-items: center;
@@ -62,18 +62,34 @@ a{
 .product-container{
     padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
-    grid-template-rows: repeat(auto);
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     row-gap: 10px;
     column-gap: 10px;
-    justify-content: center;
     margin-top: 2rem;
 }
 
-.box{
-    color:#fff;
-    width: 200px;
-    height: 200px;
-    background-color: black;
+.product-card{
+    border: solid 2px green;
+    display: flex;
+    flex-direction:column ;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    white-space: wrap;
+    padding: 1rem;
+    margin: 2.5rem 1.5rem;
 }
 
+.product-card h3{
+    font-size: 1.5rem;
+}
+
+.product-card p{
+    font-weight: bold;
+}
+
+.product-card-image{
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}

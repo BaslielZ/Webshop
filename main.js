@@ -18,7 +18,6 @@ async function getData(){
             product.innerHTML = `
             <img class="product-card-image" src="${products[i].image}" alt="">
             <h3>${products[i].title}</h3>
-            <p>${products[i].description}</p>
             <p>${products[i].price}</p>
             <button>Add to Cart</button>`
             document.getElementById('product-container').appendChild(product)
