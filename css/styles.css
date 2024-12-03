@@ -68,6 +68,7 @@ footer{
     background-color: dodgerblue;
     display: flex;
     justify-content: space-around;
+    color: #fff;
 }
 ul,ol{
     list-style: none;
@@ -84,24 +85,33 @@ footer ol{
     list-style: none;
 }
 
-footer ol li{
+footer ol a{
+    font-size: 3rem;
+    color: #fff;
     margin-left: 2rem;
 }
 
-footer ul li{
-    margin-left: 3rem;
-}
-
 footer ul li ul{
+    font-size: 1.4rem;
     display: flex;
     flex-direction: column;
-    padding-inline-start: 0;
     margin-left: -3rem;
     margin-top: 1.5rem;
 }
 
-footer ul li ul li{
-    margin-top: 1rem;
+footer ul li ul a{
+    color: #fff;
+    margin-top: 1.5rem;
+    transition: scale 0.2s;
+}
+
+footer ul li ul a:hover{
+    color: #dffaff;
+    scale: 1.03;
+}
+
+i{
+    margin-right: 1.5rem;
 }
 
 /*Styles for the List of Products*/
