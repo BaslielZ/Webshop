@@ -62,6 +62,48 @@ a{
 }
 
 
+footer{
+    padding: 5rem;
+    height: 20rem;
+    background-color: dodgerblue;
+    display: flex;
+    justify-content: space-around;
+}
+ul,ol{
+    list-style: none;
+}
+
+footer ul{
+    flex-grow: 1;
+    justify-content: space-between;
+
+}
+
+footer ol{
+    display: flex;
+    list-style: none;
+}
+
+footer ol li{
+    margin-left: 2rem;
+}
+
+footer ul li{
+    margin-left: 3rem;
+}
+
+footer ul li ul{
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 0;
+    margin-left: -3rem;
+    margin-top: 1.5rem;
+}
+
+footer ul li ul li{
+    margin-top: 1rem;
+}
+
 /*Styles for the List of Products*/
 .product-container{
     display: flex;
