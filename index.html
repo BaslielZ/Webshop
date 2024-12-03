@@ -14,7 +14,6 @@
         <nav>
                 <ul>
                     <a href="index.html" class="nav-item">Home</a>
-                    <a href="#" class="nav-item">Services</a>
                     <a href="#" class="nav-item">Products</a>
                     <a href="#" class="nav-item">About</a>
                     <a href="#" class="nav-item">Contact</a>
@@ -26,6 +25,11 @@
     <div class="message">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas repellendus corrupti molestiae excepturi nobis quam debitis at! Eos unde accusamus sed quam nobis ex similique.</p>
     </div>
+    <div class="category-btn-container">
+        <button class="men-btn" id="men-btn">Men</button>
+        <button class="women-btn" id="women-btn">Women</button>
+        <button class="electronics-btn" id="electronics-btn">Accessories</button>
+    </div>
 
     <div id="product-container" class="product-container">
     </div>
@@ -35,9 +39,9 @@
         <ul>
             <li>Products
                 <ul>
-                    <a href="#">Men</a href="#">
-                    <a href="#">Women</a href="#">
-                    <a href="#">Accessories</a href="#">
+                    <a onclick="menCategory()" href="#">Men</a href="#">
+                    <a onclick = "womenCategory()" href="#">Women</a href="#">
+                    <a onclick = "accessoriesCategory()" href="#">Accessories</a href="#">
                 </ul>
             </li>
             <li>Company
