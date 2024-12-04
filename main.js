@@ -18,6 +18,7 @@ async function getData(){
             product.innerHTML = `
             <img class="product-card-image" src="${products[i].image}" alt="">
             <h3 class= "product-card-title">${products[i].title}</h3>
+            <p class="product-card-description">${products[i].description}</p>
             <p class="product-card-price">${products[i].price}</p>
             <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`
             document.getElementById('product-container').appendChild(product)
@@ -48,6 +49,7 @@ document.getElementById('men-btn').addEventListener('click', menCategory)
             product.innerHTML += `
             <img class="product-card-image" src="${myData[i].image}" alt="">
             <h3 class= "product-card-title">${myData[i].title}</h3>
+            <p class="product-card-description">${products[i].description}</p>
             <p class="product-card-price">${myData[i].price}</p>
             <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`
             productContainer.appendChild(product)
@@ -74,6 +76,7 @@ document.getElementById('women-btn').addEventListener('click', womenCategory)
             product.innerHTML += `
             <img class="product-card-image" src="${myData[i].image}" alt="">
             <h3 class= "product-card-title">${myData[i].title}</h3>
+            <p class="product-card-description">${products[i].description}</p>
             <p class="product-card-price">${myData[i].price}</p>
             <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`
             productContainer.appendChild(product)
@@ -99,6 +102,7 @@ async function accessoriesCategory(){
            product.innerHTML += `
            <img class="product-card-image" src="${myData[i].image}" alt="">
            <h3 class= "product-card-title">${myData[i].title}</h3>
+            <p class="product-card-description">${products[i].description}</p>
            <p class="product-card-price">${myData[i].price}</p>
            <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`
            productContainer.appendChild(product)
