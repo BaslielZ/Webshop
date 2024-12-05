@@ -11,24 +11,27 @@ async function getData(){
     console.log(myData.length)
     console.log(products.length)
     
-    function displayProducts(){ 
-        for (i = 0; i < products.length; i++){ //Loop through each item in the newly updated array
-            product = document.createElement('div') //creating a div that will serve as a product card
-            product.classList.add('product-card')
-            product.innerHTML = `                   
-            <img class="product-card-image" src="${products[i].image}" alt="">
-            <h3 class= "product-card-title">${products[i].title}</h3>
-            <p class="product-card-description">${products[i].description}</p>
-            <p class="product-card-price">${products[i].price}</p>
-            <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`//Adding contents into product card
-            document.getElementById('product-container').appendChild(product) //product card is inserted in a bigger container for organized display
+    displayProducts()
+}
 
-            
-        }
+getData()
+
+
+function displayProducts(){ 
+    document.getElementById('product-container').innerHTML = ''
+    for (i = 0; i < products.length; i++){ //Loop through each item in the newly updated array
+        product = document.createElement('div') //creating a div that will serve as a product card
+        product.classList.add('product-card')
+        product.innerHTML = `                   
+        <img class="product-card-image" src="${products[i].image}" alt="">
+        <h3 class= "product-card-title">${products[i].title}</h3>
+        <p class="product-card-description">${products[i].description}</p>
+        <p class="product-card-price">${products[i].price}</p>
+        <button class="addToCart-btn" onclick = "addToCart(${myData[i].id})">Add to Cart</button>`//Adding contents into product card
+        document.getElementById('product-container').appendChild(product) //product card is inserted in a bigger container for organized display
+
         
     }
-    
-    displayProducts() //Products are displayed right after fetching
     
 }
 
@@ -37,23 +40,19 @@ async function getData(){
 document.getElementById('men-btn').addEventListener('click', menCategory)
 
 
- async function menCategory(){
-    data = await fetch('https://fakestoreapi.com/products') //Fetching api and coverting to useable JS array
-    myData = await data.json()
-    console.log(myData)
+function menCategory(){
     productContainer = document.getElementById('product-container') //Accessing the product list container
     productContainer.innerHTML = ''
-    for (i = 0;i<myData.length; i++){
-        console.log(myData[i].category)
-        if (myData[i].category == "men's clothing"){ //Getting elements with the target category and making instructions for them
+    for (i = 0;i<products.length; i++){
+        if (products[i].category == "men's clothing"){ //Getting elements with the target category and making instructions for them
             product = document.createElement('div')
             product.classList.add('product-card')
             product.innerHTML += `
-            <img class="product-card-image" src="${myData[i].image}" alt="">
-            <h3 class= "product-card-title">${myData[i].title}</h3>
+            <img class="product-card-image" src="${products[i].image}" alt="">
+            <h3 class= "product-card-title">${products[i].title}</h3>
             <p class="product-card-description">${products[i].description}</p>
-            <p class="product-card-price">${myData[i].price}</p>
-            <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`//Adding contents to product card
+            <p class="product-card-price">${products[i].price}</p>
+            <button class="addToCart-btn" onclick = "addToCart(${products[i].id})">Add to Cart</button>`//Adding contents to product card
             productContainer.appendChild(product)//product card is inserted to the bigger container for organized display
 
         }
@@ -66,23 +65,19 @@ document.getElementById('men-btn').addEventListener('click', menCategory)
 document.getElementById('women-btn').addEventListener('click', womenCategory)
 
 
- async function womenCategory(){
-     data = await fetch('https://fakestoreapi.com/products')//Fetching api and coverting to useable JS array
-     myData = await data.json()
-    console.log(myData)
+function womenCategory(){
     productContainer = document.getElementById('product-container')//Accessing the product list container
     productContainer.innerHTML = ''
     for (i = 0;i<myData.length; i++){
-        console.log(myData[i].category)
-        if (myData[i].category == "women's clothing"){//Getting elements with the target category and making instructions for them
+        if (products[i].category == "women's clothing"){//Getting elements with the target category and making instructions for them
             product = document.createElement('div')
             product.classList.add('product-card')
             product.innerHTML += `
-            <img class="product-card-image" src="${myData[i].image}" alt="">
-            <h3 class= "product-card-title">${myData[i].title}</h3>
+            <img class="product-card-image" src="${products[i].image}" alt="">
+            <h3 class= "product-card-title">${products[i].title}</h3>
             <p class="product-card-description">${products[i].description}</p>
-            <p class="product-card-price">${myData[i].price}</p>
-            <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`//Adding contents to product card
+            <p class="product-card-price">${products[i].price}</p>
+            <button class="addToCart-btn" onclick = "addToCart(${products[i].id})">Add to Cart</button>`//Adding contents to product card
             productContainer.appendChild(product)//product card is inserted to the bigger container for organized display
 
         }
@@ -96,36 +91,60 @@ document.getElementById('women-btn').addEventListener('click', womenCategory)
 document.getElementById('electronics-btn').addEventListener('click', accessoriesCategory)
 
 
-async function accessoriesCategory(){
-   data = await fetch('https://fakestoreapi.com/products')//Fetching api and coverting to useable JS array
-   myData = await data.json()
-   console.log(myData)
+function accessoriesCategory(){
    productContainer = document.getElementById('product-container')//Accessing the product list container
    productContainer.innerHTML = ''
-   for (i = 0;i<myData.length; i++){
-       console.log(myData[i].category)
-       if (myData[i].category == "electronics" || myData[i].category == 'jewelery'){//Getting elements with the target category and making instructions for them
+   for (i = 0;i<products.length; i++){
+       if (products[i].category == "electronics" || products[i].category == 'jewelery'){//Getting elements with the target category and making instructions for them
            product = document.createElement('div')
            product.classList.add('product-card')
            product.innerHTML += `
-           <img class="product-card-image" src="${myData[i].image}" alt="">
-           <h3 class= "product-card-title">${myData[i].title}</h3>
+           <img class="product-card-image" src="${products[i].image}" alt="">
+           <h3 class= "product-card-title">${products[i].title}</h3>
             <p class="product-card-description">${products[i].description}</p>
-           <p class="product-card-price">${myData[i].price}</p>
-           <button class="addToCart-btn" onclick = "addToCart()">Add to Cart</button>`//Adding contents to product card
+           <p class="product-card-price">${products[i].price}</p>
+           <button class="addToCart-btn" onclick = "addToCart(${products[i].id})">Add to Cart</button>`//Adding contents to product card
            productContainer.appendChild(product)//product card is inserted to the bigger container for organized display
 
        }
    }
 }
 
-getData()
+
+
+
 
 
 
 
 productsInCart = []
 
-function addToCart(){
-    console.log('moi')
+function addToCart(id){
+    console.log(id)
+    for(i=0;i<products.length;i++){
+        if (id == products[i].id){
+            productsInCart.push(products[i])
+        }
+    }
+    console.log(productsInCart)
+    return productsInCart
+
+}
+
+
+function showCart(){
+    console.log(productsInCart)
+    productContainer = document.getElementById('product-container')
+    productContainer.innerHTML = ''
+    for (i=0; i<productsInCart.length;i++){
+        product = document.createElement('div')
+        product.classList.add('product-card')
+        product.innerHTML += `
+        <img class="product-card-image" src="${productsInCart[i].image}" alt="">
+        <h3 class= "product-card-title">${productsInCart[i].title}</h3>
+        <p class="product-card-description">${productsInCart[i].description}</p>
+        <p class="product-card-price">${productsInCart[i].price}</p>
+        <button class="addToCart-btn" onclick = "addToCart(${productsInCart[i].id})">Add to Cart</button>`//Adding contents to product card
+        productContainer.appendChild(product)
+    }
 }
