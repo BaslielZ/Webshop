@@ -21,7 +21,7 @@ header{
     padding: 0.5rem 2rem;
     justify-content: space-between;
     align-items: center;
-    z-index: 99;
+    z-index: 2;
 }
 
 nav{
@@ -163,7 +163,7 @@ i{
 }
 
 .product-card:hover{
-    scale: 1.1;
+    scale: 1.05;
 }
 
 .product-card-title{
