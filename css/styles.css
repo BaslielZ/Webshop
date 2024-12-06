@@ -233,4 +233,38 @@ i{
 .count-btn{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.count-btn button{
+    border: 0;
+    border-radius: 40px;
+    background-color: dodgerblue;
+    height: 4rem;
+    margin: 0 2rem;
+    padding: 0 2rem;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.count-btn button:hover{
+    background: rgb(3, 128, 252);
+}
+
+.remove-btn{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #fff;
+    border: 0;
+    border-radius: 30px;
+    padding: 1rem 2rem;
+    background: rgb(249, 41, 41);
+    transition: scale 0.2s;
+}
+
+.remove-btn:hover{
+    scale: 1.1;
+    background: red;
 }
