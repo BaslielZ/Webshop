@@ -5,6 +5,8 @@ html{
 }
 
 body{
+    min-width: 100vw;
+    min-height: 100vh;
     font-size: 1.8rem;
     background-color: #f8fcff;
     line-height: 1.5;
@@ -54,6 +56,11 @@ a{
 .nav-item:hover{
     scale: 1.2;
 }
+
+.content{
+    flex-grow: 1;
+}
+
 
 .message{
     padding: 16rem;
@@ -220,4 +227,10 @@ i{
 
 .addToCart-btn:hover{
     background-color: rgb(0, 124, 247);
+}
+
+
+.count-btn{
+    display: flex;
+    flex-direction: row;
 }

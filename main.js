@@ -18,6 +18,9 @@ getData()
 
 
 function displayProducts(){ 
+    document.getElementById('message').style.visibility = 'visible'
+    document.getElementById('category-btn-container').style.visibility = 'visible'
+    document.getElementById('product-container').style.display = 'grid'
     document.getElementById('product-container').innerHTML = ''
     for (i = 0; i < products.length; i++){ //Loop through each item in the newly updated array
         product = document.createElement('div') //creating a div that will serve as a product card
@@ -41,6 +44,9 @@ document.getElementById('men-btn').addEventListener('click', menCategory)
 
 
 function menCategory(){
+    document.getElementById('message').style.visibility = 'visible'
+    document.getElementById('category-btn-container').style.visibility = 'visible'
+    document.getElementById('product-container').style.display = 'grid'
     productContainer = document.getElementById('product-container') //Accessing the product list container
     productContainer.innerHTML = ''
     for (i = 0;i<products.length; i++){
@@ -66,6 +72,9 @@ document.getElementById('women-btn').addEventListener('click', womenCategory)
 
 
 function womenCategory(){
+    document.getElementById('message').style.visibility = 'visible'
+    document.getElementById('category-btn-container').style.visibility = 'visible'
+    document.getElementById('product-container').style.display = 'grid'
     productContainer = document.getElementById('product-container')//Accessing the product list container
     productContainer.innerHTML = ''
     for (i = 0;i<myData.length; i++){
@@ -92,6 +101,9 @@ document.getElementById('electronics-btn').addEventListener('click', accessories
 
 
 function accessoriesCategory(){
+    document.getElementById('message').style.visibility = 'visible'
+    document.getElementById('category-btn-container').style.visibility = 'visible'
+    document.getElementById('product-container').style.display = 'grid'
    productContainer = document.getElementById('product-container')//Accessing the product list container
    productContainer.innerHTML = ''
    for (i = 0;i<products.length; i++){
@@ -134,17 +146,40 @@ function addToCart(id){
 
 function showCart(){
     console.log(productsInCart)
+    document.getElementById('message').style.padding = '4rem'
+    document.getElementById('message').style.visibility = 'hidden'
+    document.getElementById('category-btn-container').style.display = 'none'
     productContainer = document.getElementById('product-container')
     productContainer.innerHTML = ''
+    if (productsInCart.length == 0){
+        document.getElementById('product-container').style.display = 'flex'
+        productContainer.innerHTML = '<p style = font-size:4rem>Your cart is empty!</p>'
+    }
     for (i=0; i<productsInCart.length;i++){
-        product = document.createElement('div')
-        product.classList.add('product-card')
-        product.innerHTML += `
-        <img class="product-card-image" src="${productsInCart[i].image}" alt="">
-        <h3 class= "product-card-title">${productsInCart[i].title}</h3>
-        <p class="product-card-description">${productsInCart[i].description}</p>
-        <p class="product-card-price">${productsInCart[i].price}</p>
-        <button class="addToCart-btn" onclick = "addToCart(${productsInCart[i].id})">Add to Cart</button>`//Adding contents to product card
-        productContainer.appendChild(product)
+            product = document.createElement('div')
+            product.classList.add('product-card')
+            product.innerHTML += `
+            <img class="product-card-image" src="${productsInCart[i].image}" alt="">
+            <h3 class= "product-card-title">${productsInCart[i].title}</h3>
+            <p class="product-card-description">${productsInCart[i].description}</p>
+            <p class="product-card-price">${productsInCart[i].price}</p>
+            <div class="count-btn"><button id="addCount-btn" onclick="addCount(${productsInCart[i].id})">+</button><p class="" id="count${productsInCart[i].id}">1</p><button id="subtractCount-btn" onlick="subtractCount(${productsInCart[i].id})">-</button></div>`//Adding contents to product card
+
+            productContainer.appendChild(product)
+    }
+}
+
+
+totalprice = 0
+
+function addCount(id){
+    for (i=0;i<productsInCart.length;i++){
+        if (id == productsInCart[i].id){
+            count = Number(document.getElementById(`count${productsInCart[i].id}`).innerText)
+            newCount = count+1
+            console.log(newCount)
+            document.getElementById(`count${productsInCart[i].id}`).innerText = `${newCount}`
+
+        }
     }
 }
