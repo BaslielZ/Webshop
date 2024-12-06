@@ -131,6 +131,7 @@ function accessoriesCategory(){
 
 productsInCart = []
 
+
 function addToCart(id){
     console.log(id)
     for(i=0;i<products.length;i++){
@@ -140,9 +141,8 @@ function addToCart(id){
     }
     console.log(productsInCart)
     return productsInCart
-
+    
 }
-
 
 function showCart(){
     console.log(productsInCart)
@@ -156,16 +156,17 @@ function showCart(){
         productContainer.innerHTML = '<p style = font-size:4rem>Your cart is empty!</p>'
     }
     for (i=0; i<productsInCart.length;i++){
-            product = document.createElement('div')
-            product.classList.add('product-card')
-            product.innerHTML += `
-            <img class="product-card-image" src="${productsInCart[i].image}" alt="">
-            <h3 class= "product-card-title">${productsInCart[i].title}</h3>
-            <p class="product-card-description">${productsInCart[i].description}</p>
-            <p class="product-card-price">${productsInCart[i].price}</p>
-            <div class="count-btn"><button id="addCount-btn" onclick="addCount(${productsInCart[i].id})">+</button><p class="" id="count${productsInCart[i].id}">1</p><button id="subtractCount-btn" onlick="subtractCount(${productsInCart[i].id})">-</button></div>`//Adding contents to product card
+        product = document.createElement('div')
+        product.classList.add('product-card')
+        product.innerHTML += `
+        <img class="product-card-image" src="${productsInCart[i].image}" alt="">
+        <h3 class= "product-card-title">${productsInCart[i].title}</h3>
+        <p class="product-card-description">${productsInCart[i].description}</p>
+        <p class="product-card-price">${productsInCart[i].price}</p>
+        <div class="count-btn"><button id="addCount-btn" onclick="addCount(${productsInCart[i].id})">+</button><p class="" id="count${productsInCart[i].id}">1</p><button id="subtractCount-btn" onclick="subtractCount(${productsInCart[i].id})">-</button></div>
+        <button onclick="removeProduct(${productsInCart[i].id})" class="remove-btn">Remove</button>`//Adding contents to product card
 
-            productContainer.appendChild(product)
+        productContainer.appendChild(product)
     }
 }
 
@@ -180,6 +181,32 @@ function addCount(id){
             console.log(newCount)
             document.getElementById(`count${productsInCart[i].id}`).innerText = `${newCount}`
 
+        }
+    }
+}
+
+
+function subtractCount(id){
+    for (i=0;i<productsInCart.length;i++){
+        count = Number(document.getElementById(`count${productsInCart[i].id}`).innerText)
+        while (count > 1){
+            if (id == productsInCart[i].id){
+                console.log(count--)
+                document.getElementById(`count${productsInCart[i].id}`).innerText = `${count--}`
+                
+    
+            }
+            break
+        }
+    }
+}
+
+
+function removeProduct(id){
+    for (i=0;i<productsInCart.length;i++){
+        if(id == productsInCart[i].id){
+            productsInCart = productsInCart.filter((item) => item !== productsInCart[i] )
+            showCart()
         }
     }
 }
