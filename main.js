@@ -19,7 +19,9 @@ getData()
 
 function displayProducts(){ 
     document.getElementById('message').style.visibility = 'visible'
-    document.getElementById('category-btn-container').style.visibility = 'visible'
+    document.getElementById('message').style.padding = '16rem'
+    document.getElementById('category-btn-container').style.display = 'none'
+    document.getElementById('category-btn-container').style.display = 'flex'
     document.getElementById('product-container').style.display = 'grid'
     document.getElementById('product-container').innerHTML = ''
     for (i = 0; i < products.length; i++){ //Loop through each item in the newly updated array

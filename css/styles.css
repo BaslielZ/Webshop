@@ -5,8 +5,9 @@ html{
 }
 
 body{
-    min-width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-size: 1.8rem;
     background-color: #f8fcff;
     line-height: 1.5;
@@ -72,8 +73,8 @@ a{
 
 
 footer{
+    height: 15rem;
     padding: 5rem;
-    height: 20rem;
     background-color: dodgerblue;
     display: flex;
     justify-content: space-around;
