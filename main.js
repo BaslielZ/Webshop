@@ -136,13 +136,23 @@ productsInCart = []
 
 function addToCart(id){
     console.log(id)
+    while (productsInCart.length > 0){
+        for(j=0;j<productsInCart.length;j++){
+            for(u=0;u<products.length;u++){
+                if(productsInCart[j].id == products[u].id){
+                    console.log('Already there')
+                    productsInCart = productsInCart.filter((item) => item !== productsInCart[j])
+                }
+            }
+        }
+        break
+    }
     for(i=0;i<products.length;i++){
         if (id == products[i].id){
             productsInCart.push(products[i])
         }
     }
     console.log(productsInCart)
-    return productsInCart
     
 }
 
