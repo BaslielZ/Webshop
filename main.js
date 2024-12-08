@@ -133,6 +133,7 @@ function accessoriesCategory(){
 
 productsInCart = []
 
+totalprice = 0
 
 function addToCart(id){
     console.log(id)
@@ -140,6 +141,7 @@ function addToCart(id){
         if (id == products[i].id){
             products[i].count = 1
             productsInCart.push(products[i])
+            totalprice += products[i].count*products[i].price
         }
     }
     console.log(productsInCart)  
@@ -158,6 +160,7 @@ function showCart(){
     if (productsInCart.length == 0){
         document.getElementById('product-container').style.display = 'flex'
         productContainer.innerHTML = '<p style = font-size:4rem>Your cart is empty!</p>'
+        document.getElementById('totalprice-container').style.display = 'none'
     }
     for (i=0; i<productsInCart.length;i++){
         product = document.createElement('div')
@@ -171,19 +174,21 @@ function showCart(){
         <button onclick="removeProduct(${productsInCart[i].id})" class="remove-btn">Remove</button>`//Adding contents to product card
 
         productContainer.appendChild(product)
+        document.getElementById('totalprice-container').innerHTML= `Total: ${totalprice.toFixed(2)}`
     }
 }
 
 
-totalprice = 0
 
 function addCount(id){
     for (i=0;i<productsInCart.length;i++){
         if (id == productsInCart[i].id){
             count =Number(productsInCart[i].count)
             newCount = count +1 
-            
             productsInCart[i].count = newCount
+            totalprice += productsInCart[i].price
+            document.getElementById('totalprice-container').innerHTML = `Total: ${totalprice.toFixed(2)}`
+            console.log(totalprice)
             document.getElementById(`count${productsInCart[i].id}`).innerText = `${productsInCart[i].count}`
             console.log(productsInCart[i].count)
 
@@ -199,6 +204,9 @@ function subtractCount(id){
             if (id == productsInCart[i].id){
                 newCount = count - 1
                 productsInCart[i].count = newCount
+                totalprice -= productsInCart[i].price
+                document.getElementById('totalprice-container').innerHTML = `Total: ${totalprice.toFixed(2)}`
+                console.log(totalprice)
                 document.getElementById(`count${productsInCart[i].id}`).innerText = `${productsInCart[i].count}`
     
             }
@@ -211,7 +219,10 @@ function subtractCount(id){
 function removeProduct(id){
     for (i=0;i<productsInCart.length;i++){
         if(id == productsInCart[i].id){
-            productsInCart = productsInCart.filter((item) => item !== productsInCart[i] )
+            console.log(productsInCart[i])
+            count = Number(productsInCart[i].count)
+            totalprice -= productsInCart[i].price*count
+            productsInCart = productsInCart.filter((item) => item !== productsInCart[i])
             showCart()
         }
     }
