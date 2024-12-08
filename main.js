@@ -136,25 +136,17 @@ productsInCart = []
 
 function addToCart(id){
     console.log(id)
-    while (productsInCart.length > 0){
-        for(j=0;j<productsInCart.length;j++){
-            for(u=0;u<products.length;u++){
-                if(productsInCart[j].id == products[u].id){
-                    console.log('Already there')
-                    productsInCart = productsInCart.filter((item) => item !== productsInCart[j])
-                }
-            }
-        }
-        break
-    }
     for(i=0;i<products.length;i++){
         if (id == products[i].id){
+            products[i].count = 1
             productsInCart.push(products[i])
         }
     }
-    console.log(productsInCart)
-    
+    console.log(productsInCart)  
 }
+
+
+
 
 function showCart(){
     console.log(productsInCart)
@@ -175,7 +167,7 @@ function showCart(){
         <h3 class= "product-card-title">${productsInCart[i].title}</h3>
         <p class="product-card-description">${productsInCart[i].description}</p>
         <p class="product-card-price">${productsInCart[i].price}</p>
-        <div class="count-btn"><button id="addCount-btn" onclick="addCount(${productsInCart[i].id})">+</button><p class="" id="count${productsInCart[i].id}">1</p><button id="subtractCount-btn" onclick="subtractCount(${productsInCart[i].id})">-</button></div>
+        <div class="count-btn"><button id="addCount-btn" onclick="addCount(${productsInCart[i].id})">+</button><p class="" id="count${productsInCart[i].id}">${productsInCart[i].count}</p><button id="subtractCount-btn" onclick="subtractCount(${productsInCart[i].id})">-</button></div>
         <button onclick="removeProduct(${productsInCart[i].id})" class="remove-btn">Remove</button>`//Adding contents to product card
 
         productContainer.appendChild(product)
@@ -188,10 +180,12 @@ totalprice = 0
 function addCount(id){
     for (i=0;i<productsInCart.length;i++){
         if (id == productsInCart[i].id){
-            count = Number(document.getElementById(`count${productsInCart[i].id}`).innerText)
-            newCount = count+1
-            console.log(newCount)
-            document.getElementById(`count${productsInCart[i].id}`).innerText = `${newCount}`
+            count =Number(productsInCart[i].count)
+            newCount = count +1 
+            
+            productsInCart[i].count = newCount
+            document.getElementById(`count${productsInCart[i].id}`).innerText = `${productsInCart[i].count}`
+            console.log(productsInCart[i].count)
 
         }
     }
@@ -200,12 +194,12 @@ function addCount(id){
 
 function subtractCount(id){
     for (i=0;i<productsInCart.length;i++){
-        count = Number(document.getElementById(`count${productsInCart[i].id}`).innerText)
+        count = Number(productsInCart[i].count)
         while (count > 1){
             if (id == productsInCart[i].id){
-                console.log(count--)
-                document.getElementById(`count${productsInCart[i].id}`).innerText = `${count--}`
-                
+                newCount = count - 1
+                productsInCart[i].count = newCount
+                document.getElementById(`count${productsInCart[i].id}`).innerText = `${productsInCart[i].count}`
     
             }
             break
@@ -222,3 +216,5 @@ function removeProduct(id){
         }
     }
 }
+
+
