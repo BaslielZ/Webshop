@@ -137,13 +137,20 @@ totalprice = 0
 
 function addToCart(id){
     console.log(id)
-    for(i=0;i<products.length;i++){
-        if (id == products[i].id){
-            products[i].count = 1
-            productsInCart.push(products[i])
-            totalprice += products[i].count*products[i].price
+        for(i=0;i<products.length;i++){
+            if (id == products[i].id){
+                existingProduct = productsInCart.find(item => item.id === id);
+                if (existingProduct) {
+                    console.log(existingProduct)
+                    console.log("Product already in cart. Incrementing count.");
+                }
+                else{
+                    products[i].count = 1
+                    productsInCart.push(products[i])
+                    totalprice += products[i].count*products[i].price
+                }
+            }
         }
-    }
     console.log(productsInCart)  
 }
 
@@ -228,4 +235,11 @@ function removeProduct(id){
     }
 }
 
+
+
+array = ['a', 'b', 'c', 'd']
+
+res = array.find(item => item == 'a')
+
+console.log(res)
 
