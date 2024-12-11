@@ -31,7 +31,7 @@ input[type = "password"]:focus{
 button{
     margin-top: 1rem;
     padding: 0.9rem;
-    background-color: dodgerblue;
+    background-color: #6449e8;
     font-size: 1rem;
     color: white;
     border: 0;
@@ -39,7 +39,7 @@ button{
 }
 
 button:hover{
-    background-color: rgb(0, 123, 246) ;
+    background-color: #5634ff ;
 }
 
 #errorMessage{
@@ -58,7 +58,6 @@ p{
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: solid 1px dodgerblue;
     border-radius: 20px;
-    box-shadow: 0 0 0 10px rgba(57, 145, 251,0.1);
+    box-shadow: 5px 6px 18px rgb(0, 0, 0,0.2);
 }

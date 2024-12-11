@@ -246,8 +246,8 @@ function sendOrder(){
         <input id= "address" type="text" placeholder="Address">
         <input id= "cardnumber" type="text" placeholder="Card Number: XXXX-XXXX-XXXX-XXXX">
         <input id= "phonenumber" type="tel" placeholder="Phone Number">
-        <p>Price: ${totalprice.toFixed(2)}</p>
-        <button onclick = "completeOrder()">Send</button>
+        <p>Total Price: €${totalprice.toFixed(2)}</p>
+        <button onclick = "completeOrder()">Complete Purchase</button>
     </div>`
     document.getElementById('totalprice-container').style.display = 'none'
 
