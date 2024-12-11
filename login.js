@@ -1,5 +1,5 @@
-validUsername = 'basliel'
-validPassword = 'assefa'
+validUsername = 'bob'
+validPassword = 'smith'
 
 document.getElementById('login-btn').addEventListener('click', logIn)
 
