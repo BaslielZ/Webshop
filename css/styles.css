@@ -102,9 +102,16 @@ a{
 .message{
     padding: 16rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.message p{
+    font-size: 4rem;
+    color: #1A1A2E;
+    font-weight: 600;
 }
 
 
